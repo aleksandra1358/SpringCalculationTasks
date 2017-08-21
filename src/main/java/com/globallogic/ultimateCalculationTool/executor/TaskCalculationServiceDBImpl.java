@@ -35,6 +35,27 @@ public class TaskCalculationServiceDBImpl implements TaskCalculationService
             case plus:
                 values.forEach(v -> result.setResult(result.getResult() + v));
                 break;
+            case minus:
+                result.setResult(values.get(0));
+                for(int i = 1; i < values.size(); i++)
+                {
+                    result.setResult(result.getResult() - values.get(i));
+                }
+                break;
+            case multiply:
+                result.setResult(values.get(0));
+                for(int i = 1; i < values.size(); i++)
+                {
+                    result.setResult(result.getResult() * values.get(i));
+                }
+                break;
+            case divide:
+                result.setResult(values.get(0));
+                for(int i = 1; i < values.size(); i++)
+                {
+                    result.setResult(result.getResult() / values.get(i));
+                }
+                break;
         }
         task.setResult(result);
         result.setTask(task);
@@ -42,9 +63,22 @@ public class TaskCalculationServiceDBImpl implements TaskCalculationService
         return result;
     }
 
-    @Override//?
+    @Override
     public Optional<Result> findResult(Task task)
     {
         return Optional.ofNullable(task.getResult());
+    }
+
+    private void calculate(Operation operation)
+    {
+//        values.forEach(v -> {
+//            if(v.equals(values.get(0)))
+//            {
+//                result.setResult(v);
+//            } else
+//            {
+//                result.setResult(result.getResult() - v);
+//            }
+//        });
     }
 }

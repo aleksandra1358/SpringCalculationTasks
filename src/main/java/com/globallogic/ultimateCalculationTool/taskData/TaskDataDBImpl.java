@@ -1,5 +1,7 @@
 package com.globallogic.ultimateCalculationTool.taskData;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.globallogic.ultimateCalculationTool.Operation;
 import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
 import com.globallogic.ultimateCalculationTool.task.Task;
@@ -23,7 +25,8 @@ public class TaskDataDBImpl implements TaskData
 //    @MapsId
 //    @JoinColumn(name = "data_id")
 
-    @OneToOne(targetEntity = TaskDBImpl.class)
+    @JsonBackReference
+    @OneToOne(targetEntity = TaskDBImpl.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id")
     private Task task;
 

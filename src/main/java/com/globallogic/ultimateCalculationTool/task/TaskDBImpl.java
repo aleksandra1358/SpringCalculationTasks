@@ -1,6 +1,7 @@
 package com.globallogic.ultimateCalculationTool.task;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.globallogic.ultimateCalculationTool.result.ResultDBImpl;
 import com.globallogic.ultimateCalculationTool.result.Result;
 import com.globallogic.ultimateCalculationTool.taskData.TaskDataDBImpl;
@@ -18,10 +19,12 @@ public class TaskDBImpl implements Task
 
     private String description;
 
-    @OneToOne(targetEntity = TaskDataDBImpl.class, mappedBy = "task", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @OneToOne(targetEntity = TaskDataDBImpl.class, mappedBy = "task", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private TaskData data;
 
-    @OneToOne(targetEntity = ResultDBImpl.class, mappedBy = "task", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @OneToOne(targetEntity = ResultDBImpl.class, mappedBy = "task", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Result result;
 
 

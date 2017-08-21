@@ -1,5 +1,6 @@
 package com.globallogic.ultimateCalculationTool.result;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
 import com.globallogic.ultimateCalculationTool.task.Task;
 
@@ -14,6 +15,7 @@ public class ResultDBImpl implements Result
 
     private Double result;
 
+    @JsonBackReference
     @OneToOne(targetEntity = TaskDBImpl.class)
     @JoinColumn(name = "task_id")
     private Task task;
