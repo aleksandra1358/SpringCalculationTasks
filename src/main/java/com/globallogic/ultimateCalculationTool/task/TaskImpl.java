@@ -11,7 +11,7 @@ public class TaskImpl implements Task
     private TaskData data;
 
     @Override
-    public long getId()
+    public Long getId()
     {
         return id;
     }

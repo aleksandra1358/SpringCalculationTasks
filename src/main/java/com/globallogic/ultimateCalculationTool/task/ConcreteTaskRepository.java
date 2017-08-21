@@ -7,4 +7,5 @@ import java.util.List;
 public interface ConcreteTaskRepository extends CrudRepository<ConcreteTask, Long>
 {
     List<ConcreteTask> findAll();
+    Task findById(final Long id);
 }

@@ -5,5 +5,5 @@ import com.globallogic.ultimateCalculationTool.task.Task;
 public interface TaskService
 {
     Task createTask(final String description);
-    Task getTaskById(final long id);
+    Task getTaskById(final Long id);
 }

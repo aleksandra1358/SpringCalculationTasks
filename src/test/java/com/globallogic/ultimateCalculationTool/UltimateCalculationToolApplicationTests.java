@@ -3,15 +3,18 @@ package com.globallogic.ultimateCalculationTool;
 import com.globallogic.ultimateCalculationTool.executor.TaskCalculationService;
 import com.globallogic.ultimateCalculationTool.executor.TaskCalculationServiceImpl;
 import com.globallogic.ultimateCalculationTool.result.Result;
+import com.globallogic.ultimateCalculationTool.task.ConcreteTaskRepository;
 import com.globallogic.ultimateCalculationTool.task.Task;
 import com.globallogic.ultimateCalculationTool.taskData.TaskData;
 import com.globallogic.ultimateCalculationTool.taskData.TaskDataService;
 import com.globallogic.ultimateCalculationTool.taskData.TaskDataServiceImpl;
+import com.globallogic.ultimateCalculationTool.taskService.ConcreteTaskService;
 import com.globallogic.ultimateCalculationTool.taskService.TaskService;
 import com.globallogic.ultimateCalculationTool.taskService.TaskServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -24,6 +27,9 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class UltimateCalculationToolApplicationTests
 {
+//    @Autowired
+//    private ConcreteTaskRepository repository;
+
     private TaskService taskService;
     private TaskDataService taskDataService;
     private TaskCalculationService taskCalculationService;
@@ -34,6 +40,7 @@ public class UltimateCalculationToolApplicationTests
         taskService = new TaskServiceImpl();
         taskDataService = new TaskDataServiceImpl();
         taskCalculationService = new TaskCalculationServiceImpl();
+//        taskService = new ConcreteTaskService(repository);
     }
 
     @Test

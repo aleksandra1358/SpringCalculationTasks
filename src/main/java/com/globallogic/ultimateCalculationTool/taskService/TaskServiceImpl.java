@@ -21,10 +21,10 @@ public class TaskServiceImpl implements TaskService
     }
 
     @Override
-    public Task getTaskById(final long id)
+    public Task getTaskById(final Long id)
     {
         return tasks.stream()
-                .filter(task -> task.getId() == id)
+                .filter(task -> task.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
