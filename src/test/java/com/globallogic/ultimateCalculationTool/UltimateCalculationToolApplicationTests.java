@@ -11,14 +11,17 @@ import com.globallogic.ultimateCalculationTool.taskService.TaskService;
 import com.globallogic.ultimateCalculationTool.taskService.TaskServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class UltimateCalculationToolApplicationTests
 {
     private TaskService taskService;
@@ -70,7 +73,7 @@ public class UltimateCalculationToolApplicationTests
     public void test_executeData()
     {
         //1. take task
-        //2. gets data -> gets values and operation (task.getData.getValues) todo demeter rule
+        //2. gets data -> gets values and operation (task.getData.getValues)
         //3. execute data and store the result in task field.
         Task task = taskService.createTask("foo");
         taskDataService.createTaskData(Arrays.asList(6d, 2d, 3d), Operation.plus, task);
@@ -79,13 +82,12 @@ public class UltimateCalculationToolApplicationTests
 //        task.setResult(result);
         assertEquals(11d, result.getResult(), 0.0);
         Result foundedResult = taskService.getTaskById(task.getId()).getResult();
-
-        // TODO: equals and hashcode --> 1 MIN
         assertEquals(result, foundedResult);
     }
+
     @Test
-    public void test_findResult_whenMissing(){
-        //TODO: Optional --> JAVA 8
+    public void test_findResult_whenMissing()
+    {
         Task task = taskService.createTask("foo");
         Optional<Result> result = taskCalculationService.findResult(task);
         assertFalse(result.isPresent());
