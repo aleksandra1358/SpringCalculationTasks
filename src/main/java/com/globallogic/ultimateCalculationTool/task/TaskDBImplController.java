@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class ConcreteTaskController
+public class TaskDBImplController
 {
-    private final ConcreteTaskRepository repository;
+    private final TaskDBImplRepository repository;
 
     @Autowired
-    public ConcreteTaskController(ConcreteTaskRepository repository)
+    public TaskDBImplController(TaskDBImplRepository repository)
     {
         this.repository = repository;
     }
 
     @RequestMapping(value = "/tasks", method = RequestMethod.GET)
-    List<ConcreteTask> getTasks()
+    List<TaskDBImpl> getTasks()
     {
         return repository.findAll();
     }
 
     @RequestMapping(value = "/tasks", method = RequestMethod.POST)
-    ConcreteTask createTask(@RequestBody String description)
+    TaskDBImpl createTask(@RequestBody String description)
     {
-        return repository.save(new ConcreteTask(description));
+        return repository.save(new TaskDBImpl(description));
     }
 }

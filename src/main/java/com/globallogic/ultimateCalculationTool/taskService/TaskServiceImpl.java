@@ -1,7 +1,7 @@
 package com.globallogic.ultimateCalculationTool.taskService;
 
 import com.globallogic.ultimateCalculationTool.task.Task;
-import com.globallogic.ultimateCalculationTool.task.TaskImpl;
+import com.globallogic.ultimateCalculationTool.task.oldImpl.TaskImpl;
 
 import java.util.ArrayList;
 import java.util.List;

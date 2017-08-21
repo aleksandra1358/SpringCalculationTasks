@@ -1,6 +1,7 @@
-package com.globallogic.ultimateCalculationTool.taskData;
+package com.globallogic.ultimateCalculationTool.taskData.oldImpl;
 
 import com.globallogic.ultimateCalculationTool.Operation;
+import com.globallogic.ultimateCalculationTool.taskData.TaskData;
 
 import java.util.List;
 

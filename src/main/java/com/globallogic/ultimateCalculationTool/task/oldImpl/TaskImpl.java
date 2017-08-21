@@ -1,6 +1,7 @@
-package com.globallogic.ultimateCalculationTool.task;
+package com.globallogic.ultimateCalculationTool.task.oldImpl;
 
 import com.globallogic.ultimateCalculationTool.result.Result;
+import com.globallogic.ultimateCalculationTool.task.Task;
 import com.globallogic.ultimateCalculationTool.taskData.TaskData;
 
 public class TaskImpl implements Task

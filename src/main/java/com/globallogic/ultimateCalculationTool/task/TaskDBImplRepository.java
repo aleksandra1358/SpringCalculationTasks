@@ -4,8 +4,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface ConcreteTaskRepository extends CrudRepository<ConcreteTask, Long>
+public interface TaskDBImplRepository extends CrudRepository<TaskDBImpl, Long>
 {
-    List<ConcreteTask> findAll();
+    List<TaskDBImpl> findAll();
     Task findById(final Long id);
 }

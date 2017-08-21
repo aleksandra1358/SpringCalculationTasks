@@ -1,30 +1,35 @@
 package com.globallogic.ultimateCalculationTool.task;
 
 
+import com.globallogic.ultimateCalculationTool.result.ResultDBImpl;
 import com.globallogic.ultimateCalculationTool.result.Result;
-import com.globallogic.ultimateCalculationTool.taskData.ConcreteTaskData;
+import com.globallogic.ultimateCalculationTool.taskData.TaskDataDBImpl;
 import com.globallogic.ultimateCalculationTool.taskData.TaskData;
 
 import javax.persistence.*;
 
 @Entity
-public class ConcreteTask implements Task
+public class TaskDBImpl implements Task
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue//(strategy = GenerationType.AUTO)
+    @Column(name = "task_id")
     private Long id;
 
     private String description;
 
-    @OneToOne(targetEntity = ConcreteTaskData.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
+    @OneToOne(targetEntity = TaskDataDBImpl.class, mappedBy = "task", cascade = CascadeType.ALL)
     private TaskData data;
 
-    public ConcreteTask()
+    @OneToOne(targetEntity = ResultDBImpl.class, mappedBy = "task", cascade = CascadeType.ALL)
+    private Result result;
+
+
+    public TaskDBImpl()
     {
     }
 
-    public ConcreteTask(String description)
+    public TaskDBImpl(String description)
     {
         this.description = description;
     }
@@ -43,7 +48,7 @@ public class ConcreteTask implements Task
     @Override
     public Result getResult()
     {
-        return null;
+        return result;
     }
 
     @Override
@@ -61,6 +66,6 @@ public class ConcreteTask implements Task
     @Override
     public void setResult(Result result)
     {
-
+        this.result = result;
     }
 }

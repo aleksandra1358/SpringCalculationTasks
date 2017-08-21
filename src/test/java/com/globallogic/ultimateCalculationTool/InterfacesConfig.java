@@ -3,9 +3,9 @@
 //import com.globallogic.ultimateCalculationTool.result.Result;
 //import com.globallogic.ultimateCalculationTool.result.ResultImpl;
 //import com.globallogic.ultimateCalculationTool.task.Task;
-//import com.globallogic.ultimateCalculationTool.task.TaskImpl;
+//import com.globallogic.ultimateCalculationTool.task.oldImpl.TaskImpl;
 //import com.globallogic.ultimateCalculationTool.taskData.TaskData;
-//import com.globallogic.ultimateCalculationTool.taskData.TaskDataImpl;
+//import com.globallogic.ultimateCalculationTool.taskData.oldImpl.TaskDataImpl;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
 //
