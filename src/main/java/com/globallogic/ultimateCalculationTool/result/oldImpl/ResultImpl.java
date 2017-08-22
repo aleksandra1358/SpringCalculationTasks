@@ -1,4 +1,6 @@
-package com.globallogic.ultimateCalculationTool.result;
+package com.globallogic.ultimateCalculationTool.result.oldImpl;
+
+import com.globallogic.ultimateCalculationTool.result.Result;
 
 public class ResultImpl implements Result
 {

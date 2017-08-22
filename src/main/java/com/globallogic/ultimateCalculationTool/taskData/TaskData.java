@@ -9,6 +9,4 @@ public interface TaskData
     long getId();
     List<Double> getValues();
     Operation getOperation();
-//    void setNumbers(final List<Integer> numbers);
-//    void setOperation(final Operation operation);
 }

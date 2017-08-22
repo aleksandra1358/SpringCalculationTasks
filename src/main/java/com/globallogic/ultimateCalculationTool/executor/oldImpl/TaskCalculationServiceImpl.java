@@ -1,8 +1,9 @@
-package com.globallogic.ultimateCalculationTool.executor;
+package com.globallogic.ultimateCalculationTool.executor.oldImpl;
 
 import com.globallogic.ultimateCalculationTool.Operation;
+import com.globallogic.ultimateCalculationTool.executor.TaskCalculationService;
 import com.globallogic.ultimateCalculationTool.result.Result;
-import com.globallogic.ultimateCalculationTool.result.ResultImpl;
+import com.globallogic.ultimateCalculationTool.result.oldImpl.ResultImpl;
 import com.globallogic.ultimateCalculationTool.task.Task;
 
 import java.util.List;

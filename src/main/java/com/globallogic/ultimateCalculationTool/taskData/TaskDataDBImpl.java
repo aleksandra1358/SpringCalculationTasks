@@ -1,10 +1,9 @@
 package com.globallogic.ultimateCalculationTool.taskData;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.globallogic.ultimateCalculationTool.Operation;
-import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
 import com.globallogic.ultimateCalculationTool.task.Task;
+import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,17 +12,13 @@ import java.util.List;
 public class TaskDataDBImpl implements TaskData
 {
     @Id
-    @GeneratedValue//(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Double> values;
 
     private Operation operation;
-
-//    @OneToOne(targetEntity = TaskDBImpl.class, fetch = FetchType.LAZY, mappedBy = "data")
-//    @MapsId
-//    @JoinColumn(name = "data_id")
 
     @JsonBackReference
     @OneToOne(targetEntity = TaskDBImpl.class, fetch = FetchType.LAZY)

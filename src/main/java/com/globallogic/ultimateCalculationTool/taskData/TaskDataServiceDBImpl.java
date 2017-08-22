@@ -1,9 +1,9 @@
 package com.globallogic.ultimateCalculationTool.taskData;
 
 import com.globallogic.ultimateCalculationTool.Operation;
+import com.globallogic.ultimateCalculationTool.task.Task;
 import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
 import com.globallogic.ultimateCalculationTool.task.TaskDBImplRepository;
-import com.globallogic.ultimateCalculationTool.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

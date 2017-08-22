@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class TaskDBImpl implements Task
 {
     @Id
-    @GeneratedValue//(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "task_id")
     private Long id;
 
