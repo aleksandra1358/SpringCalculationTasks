@@ -1,7 +1,10 @@
-package com.globallogic.ultimateCalculationTool.task;
+package com.globallogic.ultimateCalculationTool;
 
 import com.globallogic.ultimateCalculationTool.executor.TaskCalculationServiceDBImpl;
 import com.globallogic.ultimateCalculationTool.result.ResultDBImpl;
+import com.globallogic.ultimateCalculationTool.task.Task;
+import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
+import com.globallogic.ultimateCalculationTool.task.TaskDBImplRepository;
 import com.globallogic.ultimateCalculationTool.taskData.TaskDataDBImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
