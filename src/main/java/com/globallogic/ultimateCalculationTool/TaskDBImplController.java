@@ -100,4 +100,10 @@ public class TaskDBImplController
             result.setTask(task);
         }
     }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    String getText()
+    {
+        return "Hello World";
+    }
 }
