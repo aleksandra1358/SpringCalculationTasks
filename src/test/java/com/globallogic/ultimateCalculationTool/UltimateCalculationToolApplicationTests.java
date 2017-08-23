@@ -3,13 +3,13 @@ package com.globallogic.ultimateCalculationTool;
 import com.globallogic.ultimateCalculationTool.executor.TaskCalculationService;
 import com.globallogic.ultimateCalculationTool.executor.TaskCalculationServiceDBImpl;
 import com.globallogic.ultimateCalculationTool.result.Result;
-import com.globallogic.ultimateCalculationTool.task.TaskDBImplRepository;
 import com.globallogic.ultimateCalculationTool.task.Task;
-import com.globallogic.ultimateCalculationTool.taskData.TaskDataServiceDBImpl;
+import com.globallogic.ultimateCalculationTool.task.TaskDBImplRepository;
 import com.globallogic.ultimateCalculationTool.taskData.TaskData;
 import com.globallogic.ultimateCalculationTool.taskData.TaskDataService;
-import com.globallogic.ultimateCalculationTool.taskService.TaskServiceDBImpl;
+import com.globallogic.ultimateCalculationTool.taskData.TaskDataServiceDBImpl;
 import com.globallogic.ultimateCalculationTool.taskService.TaskService;
+import com.globallogic.ultimateCalculationTool.taskService.TaskServiceDBImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,9 +47,6 @@ public class UltimateCalculationToolApplicationTests
         Task task = taskService.createTask("foo");
         assertNotNull(task);
         assertTrue(task.getId() > 0);
-        //1. create a task
-        //2. Add operation and values to a task
-        //3. Execute the operation and get the result
     }
 
     @Test
@@ -76,7 +73,6 @@ public class UltimateCalculationToolApplicationTests
         Task task = taskService.createTask("foo");
         TaskData taskData = taskDataService.createTaskData(Arrays.asList(1d, 2d, 3d), Operation.plus, task);
         assertNotNull(taskData);
-//        assertTrue(taskData.getId() > 0); //todo null id
         TaskData foundData = taskService.getTaskById(task.getId()).getData();
         assertNotNull(foundData);
         assertEquals(taskData.getOperation(), foundData.getOperation());
@@ -87,14 +83,10 @@ public class UltimateCalculationToolApplicationTests
     @Test
     public void test_executeData()
     {
-        //1. take task
-        //2. gets data -> gets values and operation (task.getData.getValues)
-        //3. execute data and store the result in task field.
         Task task = taskService.createTask("foo");
         taskDataService.createTaskData(Arrays.asList(6d, 2d, 3d), Operation.plus, task);
         Result result = taskCalculationService.executeTask(task);
         assertNotNull(result);
-//        task.setResult(result);
         assertEquals(11d, result.getResult(), 0.0);
         Result foundedResult = taskService.getTaskById(task.getId()).getResult();
         assertNotNull(foundedResult);

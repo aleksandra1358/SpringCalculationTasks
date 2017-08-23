@@ -9,8 +9,6 @@ public interface Task
     String getDescription();
     Result getResult();
     TaskData getData();
-
-    //todo ask for data accessing
     void setData(final TaskData data);
     void setResult(Result result);
 }

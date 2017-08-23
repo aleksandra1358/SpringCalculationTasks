@@ -68,17 +68,4 @@ public class TaskCalculationServiceDBImpl implements TaskCalculationService
     {
         return Optional.ofNullable(task.getResult());
     }
-
-    private void calculate(Operation operation)
-    {
-//        values.forEach(v -> {
-//            if(v.equals(values.get(0)))
-//            {
-//                result.setResult(v);
-//            } else
-//            {
-//                result.setResult(result.getResult() - v);
-//            }
-//        });
-    }
 }

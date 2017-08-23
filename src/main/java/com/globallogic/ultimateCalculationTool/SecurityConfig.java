@@ -17,20 +17,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/tasks").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
+                .antMatchers("/test", "/tasks")
                 .permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
-                .logout()
-                .permitAll();
+                .httpBasic();
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
+    {
         auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+                .withUser("user")
+                .password("password")
+                .roles("USER");
     }
 }

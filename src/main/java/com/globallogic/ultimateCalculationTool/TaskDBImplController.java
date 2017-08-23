@@ -41,8 +41,6 @@ public class TaskDBImplController
         return repository.save(new TaskDBImpl(description));
     }
 
-
-    //todo
     @RequestMapping(value = "/results", method = RequestMethod.GET)
     List<ResultDBImpl> getResults()
     {
@@ -51,7 +49,6 @@ public class TaskDBImplController
         return results;
     }
 
-    //todo
     @RequestMapping(value = "/results/{id}", method = RequestMethod.GET)
     ResultDBImpl getResult(@PathVariable Long id)
     {
@@ -99,5 +96,11 @@ public class TaskDBImplController
             ResultDBImpl result = (ResultDBImpl) calculationService.findResult(task).get();
             result.setTask(task);
         }
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    String getText()
+    {
+        return "Hello World";
     }
 }
