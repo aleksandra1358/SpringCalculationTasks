@@ -1,10 +1,13 @@
 package com.globallogic.ultimateCalculationTool.taskService;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.globallogic.ultimateCalculationTool.task.Task;
 import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
 import com.globallogic.ultimateCalculationTool.task.TaskDBImplRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class TaskServiceDBImpl implements TaskService
@@ -24,6 +27,10 @@ public class TaskServiceDBImpl implements TaskService
     public Task getTaskById(final Long id)
     {
         return repository.findById(id);
+    }
+    
+    public List<TaskDBImpl> getAllTasks(){
+    	return repository.findAll();
     }
 }
 
