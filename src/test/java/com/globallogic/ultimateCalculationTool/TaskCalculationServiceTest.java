@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,6 +51,11 @@ public class TaskCalculationServiceTest {
 		taskDeletor.deleteAllTasks();
 	}
 
+	@After
+	public void clean() {
+		taskDeletor.deleteAllTasks();
+	}
+
 	@Test
 	public void executeData_withGeneratedData() {
 		taskGenerator.generateTasks(3);
@@ -71,10 +77,6 @@ public class TaskCalculationServiceTest {
 		Task task3 = taskService.createTask("foo");
 		taskDataService.createTaskData(Arrays.asList(6d, 2d, 3d), Operation.plus, task3);
 		assertEquals(3, taskRepository.count());
-		taskRepository.findAll().forEach(t -> assertNotNull(t));
-		assertNotNull(taskRepository.findById(1L));
-		assertNotNull(taskService.getTaskById(1L));
-		taskRepository.findAll().forEach(t -> assertNotNull(taskService.getTaskById(t.getId())));
 		Result result1 = taskCalculationService.executeTask(taskService.getTaskById(task1.getId()));
 		Result result2 = taskCalculationService.executeTask(taskService.getTaskById(task2.getId()));
 		Result result3 = taskCalculationService.executeTask(taskService.getTaskById(task3.getId()));
