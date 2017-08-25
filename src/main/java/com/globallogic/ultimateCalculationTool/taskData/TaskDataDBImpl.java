@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.globallogic.ultimateCalculationTool.Operation;
@@ -19,6 +20,7 @@ import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
 public class TaskDataDBImpl implements TaskData {
 	@Id
 	@GeneratedValue
+	@Min(1)
 	private Long id;
 
 	@ElementCollection(fetch = FetchType.EAGER)

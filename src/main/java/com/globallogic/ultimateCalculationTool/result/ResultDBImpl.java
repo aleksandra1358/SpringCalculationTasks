@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.globallogic.ultimateCalculationTool.task.Task;
@@ -14,6 +15,7 @@ import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
 public class ResultDBImpl implements Result {
 	@Id
 	@GeneratedValue
+	@Min(1)
 	private Long id;
 
 	private Double result;

@@ -18,14 +18,10 @@ public class TaskDataGenerator {
 	@Autowired
 	private TaskDataService taskDataService;
 
-	private Random valuesGenerator;
-	private Random operationGenerator;
-	private Random sizeGenerator;
+	private Random generator;
 
 	public TaskDataGenerator() {
-		valuesGenerator = new Random();
-		operationGenerator = new Random();
-		sizeGenerator = new Random();
+		generator = new Random();
 	}
 
 	public TaskData generateTaskData(Task task) {
@@ -35,14 +31,14 @@ public class TaskDataGenerator {
 
 	private List<Double> generateValues() {
 		List<Double> values = new ArrayList<>();
-		for (int i = 0; i < 2 + sizeGenerator.nextInt(8); i++) {
-			values.add((double) valuesGenerator.nextInt(101));
+		for (int i = 0; i < 2 + generator.nextInt(8); i++) {
+			values.add((double) generator.nextInt(101));
 		}
 		return values;
 	}
 
 	private Operation generateOperation() {
-		int o = operationGenerator.nextInt(3);
+		int o = generator.nextInt(3);
 		for (Operation operation : Operation.values()) {
 			if (operation.ordinal() == o) {
 				return operation;

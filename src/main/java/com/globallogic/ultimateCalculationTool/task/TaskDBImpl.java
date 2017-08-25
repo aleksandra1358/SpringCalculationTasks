@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.globallogic.ultimateCalculationTool.result.Result;
@@ -18,6 +19,7 @@ public class TaskDBImpl implements Task {
 	@Id
 	@GeneratedValue
 	@Column(name = "task_id")
+	@Min(1)
 	private Long id;
 
 	private String description;
