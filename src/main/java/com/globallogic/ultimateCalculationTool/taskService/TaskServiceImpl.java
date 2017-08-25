@@ -1,31 +1,26 @@
 package com.globallogic.ultimateCalculationTool.taskService;
 
-import com.globallogic.ultimateCalculationTool.task.Task;
-import com.globallogic.ultimateCalculationTool.task.oldImpl.TaskImpl;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskServiceImpl implements TaskService
-{
-    private List<Task> tasks = new ArrayList<>();
+import com.globallogic.ultimateCalculationTool.task.Task;
+import com.globallogic.ultimateCalculationTool.task.oldImpl.TaskImpl;
 
-    @Override
-    public Task createTask(String description)
-    {
-        TaskImpl task = new TaskImpl();
-        task.setId(1);
-        task.setDescription(description);
-        tasks.add(task);
-        return task;
-    }
+public class TaskServiceImpl implements TaskService {
+	private List<Task> tasks = new ArrayList<>();
 
-    @Override
-    public Task getTaskById(final Long id)
-    {
-        return tasks.stream()
-                .filter(task -> task.getId().equals(id))
-                .findFirst()
-                .orElse(null);
-    }
+	@Override
+	public Task createTask(String description) {
+		TaskImpl task = new TaskImpl();
+		task.setId(1);
+		task.setDescription(description);
+		tasks.add(task);
+		return task;
+	}
+
+	@Override
+	public Task getTaskById(final Long id) {
+		return tasks.stream().filter(task -> task.getId().equals(id)).findFirst().orElse(null);
+	}
+
 }

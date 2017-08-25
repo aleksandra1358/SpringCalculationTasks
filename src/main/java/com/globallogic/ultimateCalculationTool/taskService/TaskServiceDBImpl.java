@@ -10,27 +10,26 @@ import com.globallogic.ultimateCalculationTool.task.TaskDBImpl;
 import com.globallogic.ultimateCalculationTool.task.TaskDBImplRepository;
 
 @Service
-public class TaskServiceDBImpl implements TaskService
-{
-    private final TaskDBImplRepository repository;
+public class TaskServiceDBImpl implements TaskService {
+	private final TaskDBImplRepository repository;
 
-    @Autowired
-    public TaskServiceDBImpl(TaskDBImplRepository repository) {this.repository = repository;}
+	@Autowired
+	public TaskServiceDBImpl(TaskDBImplRepository repository) {
+		this.repository = repository;
+	}
 
-    @Override
-    public Task createTask(String description)
-    {
-        return repository.save(new TaskDBImpl(description));
-    }
+	@Override
+	public Task createTask(String description) {
+		return repository.save(new TaskDBImpl(description));
+	}
 
-    @Override
-    public Task getTaskById(final Long id)
-    {
-        return repository.findById(id);
-    }
-    
-    public List<TaskDBImpl> getAllTasks(){
-    	return repository.findAll();
-    }
+	@Override
+	public Task getTaskById(final Long id) {
+		return repository.findById(id);
+	}
+
+	public List<TaskDBImpl> getAllTasks() {
+		return repository.findAll();
+	}
+
 }
-

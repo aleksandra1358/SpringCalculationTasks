@@ -2,7 +2,6 @@ package com.globallogic.ultimateCalculationTool;
 
 import java.util.Arrays;
 
-import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +16,7 @@ import com.globallogic.ultimateCalculationTool.taskService.TaskServiceDBImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ScheduledExecutorServiceTest {
+public class ScheduledExecutorServiceBaseTest {
 
 	@Autowired
 	private ScheduledExecutorService scheduledService;
@@ -28,14 +27,14 @@ public class ScheduledExecutorServiceTest {
 	@Autowired
 	private TaskDataServiceDBImpl taskDataService;
 
+	// testing method executeTask without @Scheduled
 	@Test
-	public void executeTasks_threads() throws InterruptedException {
-		for (int i = 0; i < 5; i++) {
-			Task task = taskService.createTask("abc");
-			task.setData(taskDataService.createTaskData(Arrays.asList(1d, 2d, 3d), Operation.plus, task));
-		}
-		Thread.sleep(30000);
-		Assert.assertThat(scheduledService.getAmmountOfTasks(), Matchers.lessThan(5));
+	public void executeTask_emptyTaskList() throws InterruptedException {
+		Task task = taskService.createTask("aaa");
+		task.setData(taskDataService.createTaskData(Arrays.asList(1d, 2d, 3d), Operation.plus, task));
+		scheduledService.loadTasksWithoutResult();
+		scheduledService.executeTask();
+		Assert.assertEquals(0, scheduledService.getAmmountOfTasks());
 	}
 
 }

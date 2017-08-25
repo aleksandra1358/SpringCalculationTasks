@@ -1,7 +1,6 @@
 package com.globallogic.ultimateCalculationTool.scheduleExecutor;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +15,6 @@ public class ExampleScheduler {
 
 	@Scheduled(fixedRate = 5000)
 	public void reportCurrentTime() {
-		log.info("The time is now {}", dateFormat.format(new Date()));
+		// log.info("The time is now {}", dateFormat.format(new Date()));
 	}
 }
