@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class GeneratorController {
 
 	@Autowired
-	private TaskGenerator taskGenerator;
+	TaskDeletor taskDeletor;
 
 	@Autowired
-	private TaskDeletor taskDeletor;
+	private TaskGenerator taskGenerator;
+
+	public void GeneratorController() {
+		taskDeletor.deleteAllTasks();
+	}
 
 	@PostMapping("generate")
 	public void generateTasks(@RequestParam(value = "ammount", defaultValue = "0") int ammount) {

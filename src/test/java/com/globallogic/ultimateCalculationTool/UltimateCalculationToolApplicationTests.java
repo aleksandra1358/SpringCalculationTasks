@@ -41,6 +41,7 @@ public class UltimateCalculationToolApplicationTests {
 		taskService = new TaskServiceDBImpl(repository);
 		taskDataService = new TaskDataServiceDBImpl(repository);
 		taskCalculationService = new TaskCalculationServiceDBImpl(repository);
+
 	}
 
 	@Test
@@ -96,4 +97,5 @@ public class UltimateCalculationToolApplicationTests {
 		Optional<Result> result = taskCalculationService.findResult(task);
 		assertFalse(result.isPresent());
 	}
+
 }

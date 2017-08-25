@@ -17,9 +17,6 @@ import com.globallogic.ultimateCalculationTool.task.TaskDBImplRepository;
 public class TaskCalculationServiceDBImpl implements TaskCalculationService {
 	private final TaskDBImplRepository repository;
 
-	// @Autowired
-	// private ResultDBImplRepository resultRepository;
-
 	@Autowired
 	public TaskCalculationServiceDBImpl(final TaskDBImplRepository repository) {
 		this.repository = repository;
@@ -27,12 +24,10 @@ public class TaskCalculationServiceDBImpl implements TaskCalculationService {
 
 	@Override
 	public Result executeTask(Task task) {
-		System.out.println("Begining of executeTask()");
 		ResultDBImpl result = new ResultDBImpl();
 		result.setResult(0d);
 		List<Double> values = task.getData().getValues();
 		Operation operation = task.getData().getOperation();
-		System.out.println("Loading data");
 		switch (operation) {
 		case plus:
 			values.forEach(v -> result.setResult(result.getResult() + v));
@@ -56,17 +51,10 @@ public class TaskCalculationServiceDBImpl implements TaskCalculationService {
 			}
 			break;
 		}
-		System.out.println("After switch");
 
 		task.setResult(result);
-		System.out.println("After setting result");
 		result.setTask(task);
-		System.out.println("After setting task");
-		System.out.println("Result: " + result.getResult());
-		// resultRepository.save(result);
-		// System.out.println("After saving result");
 		repository.save((TaskDBImpl) task);
-		System.out.println("After saving task");
 		return result;
 	}
 

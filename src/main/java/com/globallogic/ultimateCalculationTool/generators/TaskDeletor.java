@@ -14,4 +14,5 @@ public class TaskDeletor {
 	public void deleteAllTasks() {
 		taskRepository.deleteAll();
 	}
+
 }
